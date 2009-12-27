@@ -7,16 +7,16 @@ require 'pp'
 class TwitterStream
   attr_accessor :pool_data
   MaxPool = 100
-  def initialize
+  def initialize(auth, hashtag='')
+    hashtag = 'track=' + hashtag
     @pool_data = Queue.new
     trhead = Thread.new {
       EventMachine::run do
-        yml = YAML.load_file(File.dirname(File.expand_path(__FILE__)) + '/config.yml')
-        stream = Twitter::JSONStream.connect(:auth    => yml['auth'],
+        stream = Twitter::JSONStream.connect(:auth    => auth,
                                              :method  => 'POST',
                                              :path    => '/1/statuses/filter.json',
                                              #:path    => '/1/statuses/sample.json',
-                                             :content => 'track=kansaiun'
+                                             :content => hashtag
                                              #:content => ''
                                              )
 

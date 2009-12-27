@@ -1,5 +1,11 @@
 $(function(){
-    $.getJSON('/message', {data: Date}, reflect);
+    $('#start_button').click(function(){
+                               var tag = $('#hashtag').val();
+                               var url = '/hashtag/' + tag;
+                               $.post(url, null, function(){
+                                        $.getJSON('/message/' + tag, {data: Date}, reflect);
+                                      });
+                             });
 });
 
 function reflect(response){
@@ -16,5 +22,6 @@ function reflect(response){
             }
             $("#messages").prepend(node);
           });
-  setTimeout(function(){$.getJSON('/message', {data: Date}, reflect);}, 1000);
+  setTimeout(function(){$.getJSON('/message/' + response.hashtag,
+                                  {data: Date}, reflect);}, 1000);
 }
