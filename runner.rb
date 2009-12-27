@@ -13,6 +13,7 @@ before do
 end
 
 get "/" do
+  streams[@user].stop if streams[@user]
   @posts = []
   haml :index
 end

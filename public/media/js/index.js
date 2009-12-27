@@ -1,12 +1,18 @@
 $(function(){
-    $('#start_button').click(function(){
-                               var tag = $('#hashtag').val();
-                               var url = '/hashtag/' + tag;
-                               $.post(url, null, function(){
-                                        $.getJSON('/message/' + tag, {data: Date}, reflect);
-                                      });
-                             });
+    $('#start_button').click(start);
+    $('#hashtag_form').submit(start);
 });
+
+function start(){
+  var tag = $('#hashtag').val();
+  $('#hashtag').parent().hide();
+  $("#now_streaming").html(tag + 'を中継中');
+  var url = '/hashtag/' + tag;
+  $.post(url, null, function(){
+           $.getJSON('/message/' + tag, {data: Date}, reflect);
+         });
+  return false;
+}
 
 function reflect(response){
   $.each({dd: response.text,

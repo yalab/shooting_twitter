@@ -1,6 +1,8 @@
-%form{:method => :post, :action => '/hashtag'}
+%h1 Twitter 生中継
+%form#hashtag_form{:method => :post, :action => '/hashtag'}
   %input{:type => 'text', :name => 'hashtag', :id => :hashtag}
   %input{:type => 'button', :id => 'start_button', :value => '開始'}
+%h2#now_streaming
 %dl#messages
 - @posts.each do |post|
   %dt
