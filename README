@@ -1,0 +1,41 @@
+= Description
+Shooting twitter is an application using Twitter Stream API(http://apiwiki.twitter.com/Streaming-API-Documentation).
+
+= Usage
+
+* You clone shooting_twitter from github.
+$ git clone git://github.com/yalab/shooting_twitter.git
+
+* You rename config/config.yml.sample to config/config.yaml and put it your Twitter account ID and password (This application is using Basic Auth, so you had better get a new acount).
+$ cd shooting_twitter
+$ cp config/config.yml.sample config/config.yml
+$ vi config/config.yml
+
+* Running sinatra
+$ ruby runner.rb
+
+* Access http://localhost:4567
+
+= Depend gems
+  - twitter-stream
+  - sinatra
+  - haml
+
+  $ sudo gem install twitter-stream
+  $ sudo gem install sinatra
+  $ sudo gem install haml
+
+= Author
+
+Copyright 2009 (c) yalab, under MIT License.
+
+yalab <rudeboyjet@gmail.com>
+
+http://d.hatena.ne.jp/rudeboyjet
+
+= Special Thanks
+This application's css design is using Open Web Design.
+(http://www.openwebdesign.org/viewdesign.phtml?id=5004&referer=%2Fsearch.php%3Fvalidtype%3D%26contrast%3D%26pricolor%3Dpink%26seccolor%3D%26category%3D%26css%3Dyes%26search%3Dsearch)
+
+And Author is David Kohout(http://www.davidkohout.cz/)
+Design Licence reference that.
