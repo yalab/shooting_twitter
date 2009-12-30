@@ -2,9 +2,28 @@
 %html
   %head
     %meta{'http-equiv' => 'Content-Type', 'content' => 'text/html; charset="UTF-8"'}
-    %title Twitter 生中継
+    %title Shooting Twitter
     %link{'rel' => 'stylesheet', :href => '/media/css/style.css'}
   %body
-    =yield
+    #layout
+      #header
+        %h1#logo
+          %span Shooting
+          Twitter
+      #main
+        #content
+          =yield
+
+      #footer
+        #- Please don't delete this. You can use this template for free and this is the only way that you can say thanks to me
+        %p#copyright
+        &copy; 2009 - 
+        %a{:href => 'http://ya-lab.org'} yalab
+  
+        %p#dont-delete-this
+          Design by 
+          %a{:href => "http://www.davidkohout.cz"} David Kohout
+          | Our tip:
+          %a{:href => "http://www.junglegym.cz/uvodni-stranka.aspx", :title => "Dětská Hřiště Jungle Gym"}Dětská Hřiště
   %script{:src => '/media/js/jquery-1.3.2.min.js'}
   %script{:src => '/media/js/index.js'}

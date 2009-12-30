@@ -9,7 +9,7 @@ class TwitterStream
   MaxPool = 100
   def initialize(auth, hashtag='')
     params = nil
-    if hashtag == 'sample'
+    if hashtag == 'sample stream'
       params = {:path    => '/1/statuses/sample.json', :content => ''}
     else
       params = {:path    => '/1/statuses/filter.json', :content => 'track=' + hashtag}

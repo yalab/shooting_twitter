@@ -6,7 +6,12 @@ $(function(){
 function start(){
   var tag = $('#hashtag').val();
   $('#hashtag').parent().hide();
-  $("#now_streaming").html(tag + 'を中継中');
+  if(tag == ''){
+    tag = 'sample stream';
+  }
+  var p = $(document.createElement('p'));
+  p.html(tag + 'を中継中');
+  $("#now_streaming").append(p);
   var url = '/hashtag/' + tag;
   $.post(url, null, function(){
            $.getJSON('/message/' + tag, {data: Date}, reflect);
